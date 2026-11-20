@@ -48,6 +48,7 @@ In one test, the software engineer page returned 36 jobs in seconds, with salari
   "salaryRange": "$265K",
   "salaryMinK": 265,
   "salaryMaxK": 265,
+  "salaryCurrency": "USD",
   "equityRange": "0.12%",
   "minExperience": "3+ years",
   "visa": "Will sponsor",
@@ -112,7 +113,7 @@ for job in client.dataset(run["defaultDatasetId"]).iterate_items():
 | `companies` | – | YC company slugs or URLs |
 | `keywords` | – | Match title, skills, company or one-liner |
 | `remoteOnly` | false | Only remote jobs |
-| `minSalaryK` | 0 | Top of salary range, in thousands |
+| `minSalaryK` | 0 | Top of salary range in thousands of US dollars |
 | `includeCompanyDetails` | false | Website, team size, location, description |
 | `maxResults` | 200 | Total cap per run |
 
@@ -147,6 +148,7 @@ for job in client.dataset(run["defaultDatasetId"]).iterate_items():
 - Pass company slugs from [YC Company Leads](https://apify.com/Turboextract/yc-company-leads) to get each company's full job list.
 - Dedupe on `jobId` across scheduled runs.
 - `postedAgo` is YC's own label, like "3 months".
+- Salaries outside the US keep their own currency, shown in `salaryCurrency`.
 
 ---
 
